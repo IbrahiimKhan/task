@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import logo from "../assets/ultimate hrm logo-05-02 2.png"
+import { Link,useNavigate} from "react-router-dom";
 const Test = () => {
   const [userList, setUserList] = useState([])
+  const token = localStorage.getItem("nexistoken");
+  const navigate = useNavigate()
+  if (token == undefined) {
+    navigate("/login")
+  }
 useEffect(()=>{
+
   const getValue = async()=>{
     const value = await fetch("https://test.nexisltd.com/test",{
     method:"GET",
     headers:{
-       "Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImtoYW4uc2JhLmlicmFoaW1AZ21haWwuY29tIiwiRmlyc3RfbmFtZSI6IklicmFoaW0iLCJMYXN0X25hbWUiOiJraGFuIiwiVWlkIjoiNjM4OWMyMDJhYjgwYmNiNDE1NzUxZTgyIiwiZXhwIjoxNjcwMTQ2ODEyfQ.SZZ9Mk-wi_JawHQ-1d22hoUidSXPqORqtULfGdTIZvM",
+       "Authorization":`Bearer ${token}`,
        "Content-Type":"Application/json"
      }
     })
@@ -22,6 +29,7 @@ getValue()
    <div className="container">
   <img src={logo} alt="" className="logo main_logo" />
     <h2 className='text-center at-info'>Attendance Information</h2>
+    {/* <p>token value is {token}</p> */}
     <div className="table-wrapper">
     <table class="table">
   <thead>

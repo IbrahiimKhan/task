@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link,useNavigate} from "react-router-dom";
 import logo from "../assets/ultimate hrm logo-05-02 2.png"
 import hero_img from "../assets/istockphoto-1321277096-612x612 1.png"
+import Test from './Test';
 
 const Login = () => {
 
@@ -24,9 +25,14 @@ const Login = () => {
         }
     })
     result =await result.json()
-    console.log(result)
+    const tokenValue = Object.values(result)[0]
+    console.log(Object.keys(result)[0])
+    console.log(Object.values(result)[0])
     setMessage(Object.values(result)[0])
-    navigate("/test")
+    if (Object.keys(result)[0]=="access_token") {
+      localStorage.setItem("nexistoken",tokenValue);
+      navigate("/test")
+    }
   }
   return (
     <>
