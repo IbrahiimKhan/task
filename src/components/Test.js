@@ -5,11 +5,12 @@ const Test = () => {
   const [userList, setUserList] = useState([])
   const token = localStorage.getItem("nexistoken");
   const navigate = useNavigate()
+  //no token send user to login route
   if (token == undefined) {
     navigate("/login")
   }
 useEffect(()=>{
-
+  
   const getValue = async()=>{
     const value = await fetch("https://test.nexisltd.com/test",{
     method:"GET",
@@ -18,6 +19,7 @@ useEffect(()=>{
        "Content-Type":"Application/json"
      }
     })
+    //user data
     const result = await value.json()
     setUserList(Object.values(result))
     }

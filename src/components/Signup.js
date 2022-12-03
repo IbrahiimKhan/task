@@ -13,6 +13,7 @@ import hero_img from "../assets/istockphoto-1321277096-612x612 1.png"
   //user registration
   const register =async (e)=>{
       e.preventDefault()
+      //storing input in a object
     let registerData={
       first_name:fname,
       last_Name:lname,
@@ -30,11 +31,11 @@ import hero_img from "../assets/istockphoto-1321277096-612x612 1.png"
         }
     })
     result =await result.json()
+    //navigate user to login
     if (Object.keys(result)[0]=="sucess" || Object.values(result)=="user with this email already exists.") {
       setMessage(Object.values(result))
       navigate("/login")
-    }
-    
+    }  
     else {
       setMessage("Fillup the form correctly")
     }

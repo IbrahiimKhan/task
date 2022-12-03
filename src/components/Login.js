@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [message,setMessage]= useState("")
   const navigate = useNavigate()
+  //user sigin
   const signIN =async (e)=>{
     e.preventDefault()
     let loginData={
@@ -24,11 +25,13 @@ const Login = () => {
           "Accept":"application/json"
         }
     })
+    //getting token
     result =await result.json()
     const tokenValue = Object.values(result)[0]
     console.log(Object.keys(result)[0])
     console.log(Object.values(result)[0])
     setMessage(Object.values(result)[0])
+    //storing at localstorage  if the token is valid
     if (Object.keys(result)[0]=="access_token") {
       localStorage.setItem("nexistoken",tokenValue);
       navigate("/test")
