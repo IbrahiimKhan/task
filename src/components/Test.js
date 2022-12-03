@@ -7,7 +7,7 @@ useEffect(()=>{
     const value = await fetch("https://test.nexisltd.com/test",{
     method:"GET",
     headers:{
-       "Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImtoYW4uc2JhLmlicmFoaW1AZ21haWwuY29tIiwiRmlyc3RfbmFtZSI6IklicmFoaW0iLCJMYXN0X25hbWUiOiJraGFuIiwiVWlkIjoiNjM4OWMyMDJhYjgwYmNiNDE1NzUxZTgyIiwiZXhwIjoxNjcwMDU4OTQ3fQ.E3nxpqMBKL0m-pxAIFHK8jh0URL1XmWnjufs5u92pys",
+       "Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImtoYW4uc2JhLmlicmFoaW1AZ21haWwuY29tIiwiRmlyc3RfbmFtZSI6IklicmFoaW0iLCJMYXN0X25hbWUiOiJraGFuIiwiVWlkIjoiNjM4OWMyMDJhYjgwYmNiNDE1NzUxZTgyIiwiZXhwIjoxNjcwMTQ2ODEyfQ.SZZ9Mk-wi_JawHQ-1d22hoUidSXPqORqtULfGdTIZvM",
        "Content-Type":"Application/json"
      }
     })
